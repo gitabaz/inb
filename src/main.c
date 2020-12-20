@@ -8,6 +8,7 @@
 #include <perl.h>
 
 #define BUF_SIZE 128
+#define TAB_WIDTH 4
 
 /* key codes */
 #define KEY_ENTER2 10
@@ -118,6 +119,12 @@ void process_char(int c) {
         case CTRL('q'):
             end();
             exit(0);
+            break;
+        case '\t':
+            for (int i = 0; i < TAB_WIDTH; i++) {
+                insch(' ');
+            }
+            move(y, x + TAB_WIDTH);
             break;
         case KEY_DOWN:
             if (y < E.tb.num_lines - 1) {
