@@ -100,7 +100,7 @@ void backspace() {
     int x = getcurx(win);
     int y = getcury(win);
 
-    if (y != 0) {
+    if (x != 0) {
         mvwdelch(win, y, x - 1);
     } else {
         // delete row
